@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hannas Cleaning Company LLC | Commercial Cleaning North Jersey</title>
+<meta name="description" content="Professional commercial cleaning services across North Jersey. Licensed, insured, and detail-oriented. Serving Essex, Bergen, Hudson, Passaic, and Union counties.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --teal: #1D9E75;
+    --teal-dark: #0F6E56;
+    --teal-deeper: #085041;
+    --teal-light: #E1F5EE;
+    --teal-mid: #9FE1CB;
+    --teal-medium: #5DCAA5;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --border: #e5e5e5;
+    --bg: #fff;
+    --bg-secondary: #f9faf8;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--bg); }
+
+  /* NAV */
+  nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 2.5rem; border-bottom: 0.5px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(8px); z-index: 100; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--teal); font-style: italic; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+  .nav-cta { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.65rem 1.5rem; background: var(--teal); color: #fff; border: none; border-radius: 2px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--teal-dark); }
+
+  /* PAGES */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; padding: 5rem 2.5rem 4rem; border-bottom: 0.5px solid var(--border); }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 400; line-height: 1.15; color: var(--text); margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--teal); }
+  .hero-body { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem; }
+  .btn { display: inline-block; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85rem 2rem; background: var(--teal); color: #fff; border: none; border-radius: 2px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .btn:hover { background: var(--teal-dark); }
+  .btn-outline { background: transparent; color: var(--text); border: 0.5px solid #ccc; margin-left: 1rem; }
+  .btn-outline:hover { background: var(--bg-secondary); }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .stat { background: var(--bg); padding: 1.5rem; text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 400; color: var(--teal); display: block; }
+  .stat-label { font-size: 11px; font-weight: 400; color: var(--text-secondary); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; display: block; }
+
+  /* SECTIONS */
+  .section { padding: 4rem 2.5rem; border-bottom: 0.5px solid var(--border); }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+  .section h2 { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 400; color: var(--text); margin-bottom: 0.5rem; }
+  .section-sub { font-size: 14px; font-weight: 300; color: var(--text-secondary); margin-bottom: 2.5rem; }
+
+  /* SERVICES GRID */
+  .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+  .service-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; transition: border-color 0.2s; }
+  .service-card:hover { border-color: var(--teal); }
+  .service-icon { width: 36px; height: 36px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+  .service-icon svg { width: 16px; height: 16px; stroke: var(--teal); fill: none; stroke-width: 1.5; }
+  .service-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+  .service-desc { font-size: 13px; font-weight: 300; color: var(--text-secondary); line-height: 1.6; }
+
+  /* TAGS */
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-size: 11px; font-weight: 500; padding: 5px 12px; background: var(--teal-light); color: var(--teal-dark); border-radius: 2px; letter-spacing: 0.04em; }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-info p { font-size: 14px; font-weight: 300; color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem; }
+  .contact-detail { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+  .contact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+  .contact-detail span { font-size: 13px; color: var(--text-secondary); }
+  .contact-detail a { font-size: 13px; color: var(--teal); text-decoration: none; }
+  .contact-detail a:hover { text-decoration: underline; }
+  .form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form input, .form textarea, .form select {
+    font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 0.75rem 1rem;
+    border: 0.5px solid var(--border); border-radius: 8px; background: var(--bg);
+    color: var(--text); width: 100%; outline: none; transition: border-color 0.2s;
+  }
+  .form input:focus, .form textarea:focus, .form select:focus { border-color: var(--teal); }
+  .form textarea { height: 120px; resize: vertical; }
+  .form-success { display: none; padding: 1rem; background: var(--teal-light); border-radius: 8px; color: var(--teal-dark); font-size: 14px; font-weight: 500; text-align: center; }
+
+  /* FOOTER */
+  footer { padding: 2rem 2.5rem; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid var(--border); }
+  .footer-text { font-size: 12px; color: var(--text-secondary); }
+
+  /* MOBILE */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { width: 22px; height: 1.5px; background: var(--text); display: block; transition: 0.3s; }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .hamburger { display: flex; }
+    .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #fff; border-bottom: 0.5px solid var(--border); padding: 1rem 1.25rem; flex-direction: column; gap: 1rem; }
+    .nav-links.open { display: flex; }
+    .nav-cta { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 3rem 1.25rem; gap: 2rem; }
+    .hero h1 { font-size: 34px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .section { padding: 3rem 1.25rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#" onclick="showPage('home')">Hannas <span>Cleaning</span> Co.</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+    <li><a href="#" onclick="showPage('services')" id="nav-services">Services</a></li>
+    <li><a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#" onclick="showPage('contact')">Get a quote</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Commercial Cleaning — North Jersey</div>
+      <h1>Pristine spaces.<br><em>Every time.</em></h1>
+      <p class="hero-body">Hannas Cleaning Company LLC delivers reliable, professional commercial cleaning services across Essex, Bergen, Hudson, Passaic, and Union counties. Licensed, insured, and built around your schedule.</p>
+      <a class="btn" href="#" onclick="showPage('contact')">Get a free quote</a>
+      <a class="btn btn-outline" href="#" onclick="showPage('services')">Our services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Counties served</span></div>
+      <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Insured</span></div>
+      <div class="stat"><span class="stat-num">NJ</span><span class="stat-label">Licensed</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">What we do</div>
+    <h2>Commercial cleaning built for business</h2>
+    <p class="section-sub">Offices, facilities, and commercial spaces across North Jersey.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <p class="service-title">Office cleaning</p>
+        <p class="service-desc">Regular maintenance cleaning for offices of all sizes. Daily, weekly, or custom schedules.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <p class="service-title">Facility maintenance</p>
+        <p class="service-desc">Janitorial services for commercial buildings, medical offices, and large facilities.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <p class="service-title">Floor care</p>
+        <p class="service-desc">Professional floor cleaning, scrubbing, and maintenance for all surface types.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Service area</div>
+    <h2>Serving all of North Jersey</h2>
+    <p class="section-sub">We cover five counties — never crossing state lines.</p>
+    <div class="tags">
+      <span class="tag">Essex County</span>
+      <span class="tag">Bergen County</span>
+      <span class="tag">Hudson County</span>
+      <span class="tag">Passaic County</span>
+      <span class="tag">Union County</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div id="services" class="page">
+  <div class="section">
+    <div class="section-label">What we offer</div>
+    <h2>Full-service commercial cleaning</h2>
+    <p class="section-sub">Tailored to your facility, schedule, and standards.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+        <p class="service-title">Office cleaning</p>
+        <p class="service-desc">Desks, common areas, restrooms, kitchens — full office cleaning on your schedule.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/></svg></div>
+        <p class="service-title">Janitorial services</p>
+        <p class="service-desc">Ongoing janitorial coverage for commercial buildings and large facilities.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <p class="service-title">Floor care</p>
+        <p class="service-desc">Sweeping, mopping, scrubbing, and polishing for all floor types.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <p class="service-title">Post-construction cleanup</p>
+        <p class="service-desc">Deep cleaning after renovations or new builds — ready for occupancy.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <p class="service-title">Recurring maintenance</p>
+        <p class="service-desc">Daily, weekly, or monthly contracts with consistent crews and checklists.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <p class="service-title">Custom packages</p>
+        <p class="service-desc">We build a cleaning plan around your facility's specific needs and budget.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page">
+  <div class="section">
+    <div class="section-label">Get in touch</div>
+    <h2>Request a free quote</h2>
+    <p class="section-sub">Tell us about your space and we'll get back to you within 24 hours.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>We serve commercial clients across North Jersey. Reach out and we'll put together a custom cleaning plan that works for your facility and budget.</p>
+        <div class="contact-detail"><div class="contact-dot"></div><a href="tel:9733064829">(973) 306-4829</a></div>
+        <div class="contact-detail"><div class="contact-dot"></div><a href="mailto:jp.hannascleaning@gmail.com">jp.hannascleaning@gmail.com</a></div>
+        <div class="contact-detail"><div class="contact-dot"></div><a href="https://hannascleaning.com">hannascleaning.com</a></div>
+        <div class="contact-detail"><div class="contact-dot"></div><span>Serving Essex, Bergen, Hudson, Passaic & Union counties</span></div>
+        <div class="contact-detail"><div class="contact-dot"></div><span>Licensed & fully insured</span></div>
+        <div class="contact-detail"><div class="contact-dot"></div><span>Response within 24 hours</span></div>
+      </div>
+      <div>
+        <div class="form" id="contactForm">
+          <div class="form-row">
+            <input type="text" placeholder="Your name" required />
+            <input type="text" placeholder="Business name" />
+          </div>
+          <div class="form-row">
+            <input type="email" placeholder="Email address" required />
+            <input type="tel" placeholder="Phone number" />
+          </div>
+          <select>
+            <option value="" disabled selected>Type of facility</option>
+            <option>Office building</option>
+            <option>Medical facility</option>
+            <option>Retail space</option>
+            <option>Warehouse / industrial</option>
+            <option>Other commercial</option>
+          </select>
+          <select>
+            <option value="" disabled selected>Preferred frequency</option>
+            <option>Daily</option>
+            <option>Weekly</option>
+            <option>Bi-weekly</option>
+            <option>Monthly</option>
+            <option>One-time / post-construction</option>
+          </select>
+          <textarea placeholder="Tell us about your space — square footage, number of floors, any special requirements..."></textarea>
+          <button class="btn" onclick="submitForm(event)">Send quote request</button>
+        </div>
+        <div class="form-success" id="formSuccess">Thank you! We'll be in touch within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-text">© 2025 Hannas Cleaning Company LLC · North Jersey</span>
+  <span class="footer-text">Licensed & Insured · NJ</span>
+</footer>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('nav-' + id).classList.add('active');
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo(0, 0);
+}
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
